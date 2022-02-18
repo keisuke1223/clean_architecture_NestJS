@@ -1,4 +1,4 @@
-import { Book } from '../../../../src/domain/entities/book.entity'
+import { Book } from 'domain/entities/book.entity'
 
 describe('Book', () => {
   it('should be defined', () => {

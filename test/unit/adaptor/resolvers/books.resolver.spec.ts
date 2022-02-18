@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing'
-import { BooksResolver } from '../../../../src/adaptor/resolvers/books.resolver'
+import { BooksResolver } from 'adaptor/resolvers/books.resolver'
 
 describe('BooksResolver', () => {
   let resolver: BooksResolver
