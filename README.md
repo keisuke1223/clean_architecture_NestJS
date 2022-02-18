@@ -22,7 +22,7 @@ $ docker compose up -d
 $  docker-compose logs -f
 
 # DB接続
-$ docker-compose exec db psql -U root subscription
+$ docker-compose exec db psql -U root nestjs
 ```
 
 ## GraphQL
