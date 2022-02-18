@@ -1,5 +1,3 @@
-//環境変数
-
 export default () => ({
   port: parseInt(process.env.PORT, 10) || 3000,
   database: {
@@ -9,12 +7,7 @@ export default () => ({
     username: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_DATABASE,
-    entities: ['dist/domain/entities/*.entity{.ts,.js}'],
-    migrations: ['dist/infrastructure/database/migrations/*{.ts,.js}'], //実行マイグレの参照先
+    autoLoadEntities: true,
     synchronize: false,
-    cli: {
-      entitiesDir: 'src/domain/entities',
-      migrationsDir: 'src/infrastructure/database/migrations', //出力先
-    },
   },
 })
