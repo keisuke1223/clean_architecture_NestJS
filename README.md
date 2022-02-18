@@ -56,14 +56,18 @@ mutation {
 ## Migration
 
 ```bash
+# 前提 コンテナ内での実行
+$ docker exec -it api/ sh
+
 # migrationファイルを生成
-$ docker-compose exec api npx typeorm migration:generate -n "ファイル名"
+$ npm run typeorm -- migration:generate -n "ファイル名"
 
 # migration実行
-$ docker-compose exec api npx typeorm migration:run
+$ npm run typeorm migration:run
 
 # ロールバック
-$ docker-compose exec api npx typeorm migration:revert
+$ npm run typeorm migration:revert
+
 ```
 
 
