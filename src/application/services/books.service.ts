@@ -1,32 +1,32 @@
-import { Injectable } from '@nestjs/common';
-import { Book } from '../../domain/entities/book.entity';
-import { NewBookInput } from '../../domain/dto/book/newBook.input';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Injectable } from '@nestjs/common'
+import { Book } from '../../domain/entities/book.entity'
+import { NewBookInput } from '../../domain/dto/book/newBook.input'
+import { InjectRepository } from '@nestjs/typeorm'
+import { Repository } from 'typeorm'
 
 @Injectable()
 export class BooksService {
-    constructor(
-        @InjectRepository(Book)
-        private booksRepostiory: Repository<Book>,
-    ) {}
+  constructor(
+    @InjectRepository(Book)
+    private booksRepostiory: Repository<Book>,
+  ) {}
 
-    findAll(): Promise<Book[]> {
-        return this.booksRepostiory.find();
-    }
+  findAll(): Promise<Book[]> {
+    return this.booksRepostiory.find()
+  }
 
-    findOneById(id: number): Promise<Book> {
-        return this.booksRepostiory.findOne(id);
-    }
+  findOneById(id: number): Promise<Book> {
+    return this.booksRepostiory.findOne(id)
+  }
 
-    async create(data: NewBookInput): Promise<Book> {
-        const book = this.booksRepostiory.create(data);
-        await this.booksRepostiory.save(book);
-        return book;
-    }
+  async create(data: NewBookInput): Promise<Book> {
+    const book = this.booksRepostiory.create(data)
+    await this.booksRepostiory.save(book)
+    return book
+  }
 
-    async remove(id: number): Promise<boolean> {
-        const result = await this.booksRepostiory.delete(id);
-        return result.affected > 0;
-    }
+  async remove(id: number): Promise<boolean> {
+    const result = await this.booksRepostiory.delete(id)
+    return result.affected > 0
+  }
 }

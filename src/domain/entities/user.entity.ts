@@ -1,28 +1,28 @@
-import { Field, ID, ObjectType } from '@nestjs/graphql';
+import { Field, ID, ObjectType } from '@nestjs/graphql'
 import {
-    Entity,
-    Column,
-    PrimaryGeneratedColumn,
-    UpdateDateColumn,
-    CreateDateColumn,
-} from 'typeorm';
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+  CreateDateColumn,
+} from 'typeorm'
 
 @Entity()
 @ObjectType()
 export class User {
-    @PrimaryGeneratedColumn()
-    @Field((type) => ID)
-    id: number;
+  @PrimaryGeneratedColumn()
+  @Field((type) => ID)
+  id: number
 
-    @Column({ length: '30' })
-    @Field()
-    name: string;
+  @Column({ length: '30' })
+  @Field()
+  name: string
 
-    @UpdateDateColumn()
-    @Field()
-    updatedAt: Date;
+  @UpdateDateColumn()
+  @Field()
+  updatedAt: Date
 
-    @CreateDateColumn()
-    @Field()
-    createdAt: Date;
+  @CreateDateColumn()
+  @Field()
+  createdAt: Date
 }

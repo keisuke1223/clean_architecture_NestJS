@@ -1,7 +1,8 @@
-import { Module } from '@nestjs/common';
+import { Module } from '@nestjs/common'
 
-import {BooksModule} from "./books.module";
+import { BooksModule } from './books.module'
 
 @Module({
-    imports:[BooksModule]})
+  imports: [BooksModule],
+})
 export class RestModule {}
