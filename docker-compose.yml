@@ -10,7 +10,9 @@ services:
       - type: bind
         source: .
         target: /api
-      - node_modules_volume:/api/node_modules
+      - type: volume
+        source: node_modules_volume
+        target: /api/node_modules
     command: npm run start:dev
   db:
     image: postgres:14-alpine
@@ -26,7 +28,9 @@ services:
       - type: bind
         source: ./src/infrastructure/database/init
         target: /docker-entrypoint-initdb.d
-      - db-store:/var/lib/postgresql/data
+      - type: volume
+        source: db-store
+        target: /var/lib/postgresql/data
 volumes:
   node_modules_volume:
   db-store:
