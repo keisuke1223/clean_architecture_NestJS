@@ -15,13 +15,11 @@
 ```bash
 # development
 $ docker compose up -d
-  # 初回環境構築のみマイグレ実行
-  $ docker-compose exec api npx typeorm migration:run
 
-# ログ出力
+# log
 $  docker-compose logs -f
 
-# DB接続
+# DB connection
 $ docker-compose exec db psql -U root nestjs
 ```
 
@@ -30,7 +28,7 @@ $ docker-compose exec db psql -U root nestjs
 # endpoint
 http://localhost:3000/graphql
 
-# 取得
+# select
 query{
   books{
     id,
@@ -40,7 +38,7 @@ query{
   }
 }
 
-# 追加
+# insert
 mutation {
   addBook(newBook:{title:"test" price:2011 author:"Alice"}){
     title
@@ -56,26 +54,29 @@ mutation {
 ## Migration
 
 ```bash
-# 前提 コンテナ内での実行
 $ docker exec -it api/ sh
 
-# migrationファイルを生成
-$ npm run typeorm -- migration:generate -n "ファイル名"
+# generate
+$ npm run typeorm -- migration:generate -n "filename"
 
-# migration実行
+# run
 $ npm run typeorm migration:run
 
-# ロールバック
+# rollback
 $ npm run typeorm migration:revert
 
 ```
 
 
-## Test（整備中）
+## Test
 
 ```bash
-# unit tests
-$ npm run test
+$ docker exec -it api/ sh
+
+# unit tests 
+$ npm run test 
+$ npm run test "filename" 
+$ npm run test -- -t 'pec_name' 
 
 # e2e tests
 $ npm run test:e2e
