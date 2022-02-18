@@ -1,8 +1,8 @@
 import { NotFoundException } from '@nestjs/common'
 import { Args, Int, Mutation, Query, Resolver } from '@nestjs/graphql'
-import { Book } from '../../domain/entities/book.entity'
-import { BooksService } from '../../application/services/books.service'
-import { NewBookInput } from '../../application/input/book/newBook.input'
+import { Book } from 'domain/entities/book.entity'
+import { BooksService } from 'application/services/books.service'
+import { NewBookInput } from 'application/input/book/newBook.input'
 
 @Resolver((of) => Book)
 export class BooksResolver {
