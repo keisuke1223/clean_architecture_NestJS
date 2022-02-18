@@ -1,6 +1,6 @@
 FROM node:17.4-alpine as builder
 WORKDIR /build
-COPY *json src/ ./
+COPY . .
 RUN npm ci && \
     npm run build
 
