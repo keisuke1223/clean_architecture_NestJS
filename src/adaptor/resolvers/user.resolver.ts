@@ -2,7 +2,7 @@ import { NotFoundException } from '@nestjs/common'
 import { Args, Int, Mutation, Query, Resolver } from '@nestjs/graphql'
 import { User } from '../../domain/entities/user.entity'
 import { UserService } from '../../application/services/user.service'
-import { NewUserInput } from '../../domain/dto/user/newUser.input'
+import { NewUserInput } from '../../application/input/user/newUser.input'
 
 @Resolver((of) => User)
 export class UsersResolver {

@@ -5,4 +5,4 @@ import { BooksModule } from './books.module'
 @Module({
   imports: [BooksModule],
 })
-export class RestModule {}
+export class AppControllerModule {}

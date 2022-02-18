@@ -17,4 +17,4 @@ import { UserModule } from './user.module'
   ],
   providers: [],
 })
-export class GraphqlModule {}
+export class AppResolverModule {}

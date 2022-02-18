@@ -3,8 +3,8 @@ import { TypeOrmModule } from '@nestjs/typeorm'
 import { ConfigModule, ConfigService } from '@nestjs/config'
 import configuration from './infrastructure/config/configuration'
 
-import { GraphqlModule } from './infrastructure/modules/graphql.module'
-import { RestModule } from './infrastructure/modules/rest.module'
+import { AppResolverModule } from './infrastructure/modules/app.resolver.module'
+import { AppControllerModule } from './infrastructure/modules/app.controller.module'
 
 import { AppController } from './adaptor/controllers/app.controller'
 import { AppService } from './application/services/app.service'
@@ -22,8 +22,8 @@ import { AppService } from './application/services/app.service'
         ...configService.get('database'),
       }),
     }),
-    GraphqlModule,
-    RestModule,
+    AppResolverModule,
+    AppControllerModule,
   ],
   controllers: [AppController],
   providers: [AppService],
