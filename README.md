@@ -6,18 +6,14 @@
 [circleci-url]: https://circleci.com/gh/nestjs/nest
 
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
-
-
-## 検証環境構築
+## build docker containers
 
 ```bash
 # development
 $ docker compose up -d
 
 # log
-$  docker-compose logs -f
+$ docker-compose logs -f
 
 # DB connection
 $ docker-compose exec db psql -U root nestjs
